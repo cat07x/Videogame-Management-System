@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ user.username }}'s Profile - Pixelrated{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ user.username }}'s Profile</h1>
+
+    <!-- Profile Picture and Basic Information -->
+    <div class="profile-details">
+        <div class="profile-picture">
+            {% if user.profile_picture %}
+                <img src="{{ url_for('static', filename='profile_pics/' + user.profile_picture) }}" alt="Profile Picture">
+            {% else %}
+                <img src="{{ url_for('static', filename='images/default.jpeg') }}" alt="Default Profile Picture">
+            {% endif %}
+        </div>
+
+        <div class="user-info">
+            <h3>{{ user.username }}</h3>
+            <p>Email: {{ user.email }}</p>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <!-- User Reviews -->
+    <h2>Your Reviews</h2><br>
+    {% if reviews %}
+        {% for review in reviews %}
+        <div class="review">
+            <p><strong>{{ review.title }}</strong> (Rating: {{ review.rating }} stars)</p>
+            <p>{{ review.review_text }}</p>
+            <p><small>{{ review.created_at }}</small></p>
+            {% if review.user_id == session['user_id'] %}
+                <a href="{{ url_for('delete_review', review_id=review.review_id) }}">Delete Review</a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>You haven't left any reviews yet.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Pixelrated{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Style for the sidebar */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #333;
+            padding-top: 60px;
+            transition: 0.3s;
+            z-index: 1000;
+        }
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #4CAF50;
+        }
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+        .sidebar .menu-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 30px;
+            color: black;
+            cursor: pointer;
+            z-index: 1100;
+        }
+        .sidebar.open {
+            left: 0;
+        }
+        /* Page content (no shifting now) */
+        #content {
+            margin-left: 0;
+        }
+
+        /* Styles for the search container */
+        .search-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between; /* Ensures spacing between input field and button */
+            align-items: center;
+        }
+
+        .search-container form {
+            display: flex;
+            width: 100%;
+        }
+
+        .search-container input {
+            padding: 10px;
+            width: 70%;
+            font-size: 16px;
+        }
+
+        .search-container button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .search-container button:hover {
+            background-color: #555;
+        }
+
+        /* Menu button styling */
+        .menu-btn {
+            font-size: 30px;
+            color: #4CAF50;
+            cursor: pointer;
+            padding-left: 10px;
+            z-index: 1100;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <br>
+            <div class="logo">
+                <a href="{{ url_for('index') }}">
+                    <h1>Pixelrated</h1>
+                </a>
+                {% if username %}
+            <p>Hello, {{ username }}!</p>
+        {% endif %}
+            </div>
+            <br>
+        </div>
+    </header>
+    <br>
+
+    <!-- Sidebar Menu -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">×</a>
+        <a href="{{ url_for('signup') }}">Sign Up</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        {% if username %}
+        <a href="{{ url_for('logout') }}">Log Out</a>
+        <a href="{{ url_for('profile') }}">Profile</a>  <!-- Profile link -->
+        {% endif %}
+    </div>
+
+    <!-- Page content -->
+    <div id="content">
+        
+        <!-- Main Navigation with Search Bar -->
+        <nav>
+            <!-- Menu Button aligned to the left -->
+            <span class="menu-btn" onclick="openNav()">☰</span>
+            
+            <!-- Container for the search bar, centered in the navigation -->
+            <div class="container">
+                <div class="search-container">
+                    <form action="{{ url_for('search') }}" method="GET">
+                        <input type="text" name="query" placeholder="Search for games..." required>
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        
+
+        <!-- Main Content Area -->
+        <br>
+        <main>
+            <div class="container">
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Pixelrated | All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Open the sidebar
+        function openNav() {
+            document.getElementById("mySidebar").classList.add("open");
+        }
+
+        // Close the sidebar
+        function closeNav() {
+            document.getElementById("mySidebar").classList.remove("open");
+        }
+    </script>
+</body>
+</html>

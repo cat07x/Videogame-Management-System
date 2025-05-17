@@ -1,0 +1,489 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body & Font Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background-color: #222;
+    color: #fff;
+    padding: 15px;
+}
+
+header .logo h1 {
+    font-size: 48px;
+    color: #4CAF50;
+    margin: 0;
+}
+
+header .search-container form {
+    display: flex;
+    align-items: center;
+}
+
+header .search-container input {
+    padding: 8px;
+    font-size: 14px;
+    width: 250px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+
+header .search-container button {
+    padding: 8px 16px;
+    background-color: #555;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+header .user-actions {
+    display: flex;
+    align-items: center;
+}
+
+header .user-actions a {
+    color: #fff;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+header .user-actions a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation */
+nav {
+    background-color: #222;
+    padding: 10px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Game List Grid */
+.game-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.game-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+}
+
+.game-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.game-card h3 {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.game-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+.game-card a {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+.game-card a:hover {
+    background-color: #555;
+}
+
+/* Game Details Page */
+.game-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.game-header img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.game-header h2 {
+    font-size: 38px;
+    margin-top: 20px;
+}
+
+.game-description {
+    margin-top: 20px;
+    max-width: 1000px;
+    text-align: left;
+}
+
+
+.game-rating {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #444;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #4CAF50;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.formcontainer {
+    width: 50%;           /* Set width to 50% */
+    max-width: 500px;     /* Optional: Max width to prevent it from becoming too wide */
+    margin: 0 auto;       /* Center the form horizontally */
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-group input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+button[type="submit"].btn {
+    width: 50%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button[type="submit"].btn:hover {
+    background-color: #555;}
+
+/* Style for the genre buttons */
+.genre-buttons {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.genre-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; /* Space between the buttons */
+    margin: 10px 0;
+}
+
+.genre-list a {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+}
+
+.genre-list a:hover {
+    background-color: #555;
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Game Review Section */
+.game-reviews {
+    margin-top: 30px;
+    width: 90%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Individual Review */
+.review {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.review p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.review p strong {
+    font-weight: bold;
+    color: #444;
+}
+
+.review .review-date {
+    font-size: 14px;
+    color: #999;
+}
+
+.review .review-rating {
+    font-size: 18px;
+    color: #f39c12; /* Gold color for the rating */
+    margin-bottom: 10px;
+}
+
+/* Add Review Form */
+#review-form {
+    background-color: white;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;  /* Make form take up 100% width of its parent container */
+    max-width: 900px; /* Optional: Max width to avoid it being too wide */
+    margin-left: auto;  /* Center form */
+    margin-right: auto; /* Center form */
+}
+
+#review-form h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#review-form label {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+#review-form textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    resize: vertical;
+}
+
+#review-form textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+#review-form .stars {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#review-form .star {
+    font-size: 30px;
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.3s ease-in-out;
+    margin-right: 5px;
+}
+
+#review-form .star.selected {
+    color: gold;
+}
+
+#review-form .star:hover {
+    color: #f39c12;
+}
+
+/* Add Review Button */
+#add-review-btn {
+    width: 50%;  /* Match the width to the original submit button */
+    padding: 10px;
+    background-color: #4CAF50;  /* Same green color */
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#add-review-btn:hover {
+    background-color: #555;  /* Darker hover effect */
+}
+
+/* Delete Review Button */
+.delete-review-btn {
+    display: inline-block;
+    width: 50%;  /* Match the width to the original submit button */
+    padding: 10px;
+    background-color: #4CAF50;  /* Red color for delete */
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    text-decoration: none;  /* Remove underline from links */
+    transition: background-color 0.3s ease-in-out;
+}
+
+.delete-review-btn:hover {
+    background-color: #555;  /* Darker red color on hover */
+}
+
+/* General container for reviews */
+.reviews {
+    width: 100%;
+    max-width: 1200px;  /* Limit max-width for large screens, remove or adjust as needed */
+    margin: 20px auto;  /* Center the reviews container */
+    padding: 20px;
+    background-color: #000;  /* Light background for contrast */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Subtle shadow effect */
+}
+
+/* Title for Reviews Section */
+.reviews h2 {
+    font-size: 2rem;
+    color: #fff;  /* Dark text for contrast */
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Individual review card style */
+.review {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;  /* Space between reviews */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #4CAF50; /* Green border to highlight the review */
+    transition: all 0.3s ease-in-out;  /* Smooth hover effect */
+}
+
+.review:hover {
+    transform: translateY(-5px);  /* Lift effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Deeper shadow on hover */
+}
+
+/* Username and Rating */
+.review p strong {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+}
+
+
+/* If no reviews are present */
+.reviews p {
+    text-align: center;
+    color: #888;
+    font-size: 1rem;
+}
+
+.review-actions {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    align-items: center; /* Vertically align the buttons */
+    justify-content: space-between; /* Space out the buttons, using available width */
+    margin: 10px; /* Add some space on the sides of the container */
+}
+
+/* Both buttons should take equal width */
+.review-actions form {
+    flex: 1; /* Make the form take equal space */
+}
+
+/* Circular container for profile picture */
+.profile-picture {
+    width: 3cm;      /* Set the width to 3cm */
+    height: 3cm;     /* Set the height to 3cm */
+    border-radius: 50%; /* Make it circular */
+    overflow: hidden;  /* Ensure the image doesn't overflow */
+    background-color: #ccc;  /* Default background color if no image is provided */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #ddd; /* Optional: Add a border around the circle */
+}
+
+/* Style the profile image */
+.profile-picture img {
+    width: 100%;         /* Make the image fill the container */
+    height: 100%;        /* Ensure the image takes up the full space */
+    object-fit: cover;   /* Cover the circle proportionally */
+}

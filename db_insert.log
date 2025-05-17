@@ -1,0 +1,16 @@
+2024-11-05 16:14:59,941 - INFO - Excel file loaded successfully: backend/python/data/games_data.xlsx
+2024-11-05 16:14:59,942 - INFO - Connected to the database: gaming_database.db
+2024-11-05 16:15:00,124 - INFO - Tables created successfully.
+2024-11-05 16:15:00,124 - INFO - Committing changes to the database.
+2024-11-05 16:15:00,125 - INFO - Database connection closed.
+2024-11-05 16:17:41,670 - INFO - Excel file loaded successfully: backend/python/data/games_data.xlsx
+2024-11-05 16:17:41,671 - INFO - Connected to the database: gaming_database.db
+2024-11-05 16:17:41,864 - INFO - Tables created successfully.
+2024-11-05 16:17:41,864 - INFO - Committing changes to the database.
+2024-11-05 16:17:41,864 - INFO - Database connection closed.
+2024-11-05 16:26:21,653 - INFO - Excel file loaded successfully: backend/python/data/games_data.xlsx
+2024-11-05 16:26:21,653 - INFO - Connected to the database: gaming_database.db
+2024-11-05 16:26:21,654 - INFO - Tables created successfully.
+2024-11-05 16:26:21,654 - INFO - Committing changes to the database.
+2024-11-05 16:26:21,654 - INFO - Database connection closed.
+2024-11-05 16:27:30,818 - ERROR - Error loading Excel file: [Errno 2] No such file or directory: 'backend/python/data/games_data.xlsx'

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Games in the {{ genre }} Genre - Pixelrated{% endblock %}
+
+{% block content %}
+    <!-- Display Flash Messages -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Display Welcome Message for Logged-in User -->
+    {% if username %}
+        <div class="welcome-message">
+            <h2>Welcome back, {{ username }}!</h2>
+        </div>
+    {% else %}
+        <div class="welcome-message">
+            <h2>Welcome to Pixelrated! Please log in to access more features.</h2>
+        </div>
+    {% endif %}
+
+    <!-- Genre Header
+    <h2>Games in the "{{ genre }}" Genre</h2> -->
+
+    <!-- Genre Buttons -->
+    <div class="genre-buttons">
+        <div class="genre-list">
+            {% for genre_item in genres %}
+                <a href="{{ url_for('games_by_genre', genre=genre_item['genre']) }}" class="btn btn-genre">{{ genre_item['genre'] }}</a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Display Game List in Grid Format -->
+    <div class="game-list">
+        {% if games %}
+            {% for game in games %}
+                <div class="game-card">
+                    <!-- Check if 'background_image' exists for the game -->
+                    {% if game['background_image'] %}
+                        <img src="{{ game['background_image'] }}" alt="{{ game['title'] }}">
+                    {% else %}
+                        <img src="default-image.jpg" alt="{{ game['title'] }}"> <!-- Fallback image -->
+                    {% endif %}
+                    <div class="game-info">
+                        <h3>{{ game['title'] }}</h3>
+                        <p>{{ game['description'][:100] }}...</p>
+                        <a href="{{ url_for('game_details', game_id=game['game_id']) }}" class="btn btn-primary">See More</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No games found for the "{{ genre }}" genre.</p>
+        {% endif %}
+    </div>
+
+{% endblock %}

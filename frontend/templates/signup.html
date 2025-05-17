@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up - Gaming Database{% endblock %}
+
+{% block content %}
+    <div class="formcontainer">
+        <div class="form-container">
+            <h2>Create a New Account</h2>
+            <form method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="profile_picture">Profile Picture (URL)</label>
+                    <input type="text" name="profile_picture">
+                </div>
+
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+
+            <p class="redirect-text">Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert">
+                    <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+{% endblock %}

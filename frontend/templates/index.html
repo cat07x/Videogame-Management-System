@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Pixelrated - Home{% endblock %}
+
+{% block content %}
+    <!-- Display Flash Messages -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    
+    
+    <!-- Display Welcome Message for Logged-in User -->
+    {% if username %}
+        <div class="welcome-message">
+            <h2>Welcome back, {{ username }}!</h2>
+        </div>
+    {% else %}
+        <div class="welcome-message">
+            <h2>Welcome to Pixelrated! Please log in to access more features.</h2>
+        </div>
+    {% endif %}
+
+    <!-- Genre Buttons -->
+    <div class="genre-buttons">
+        <!-- <h3>Genres:</h3> -->
+        <div class="genre-list">
+            {% for genre in genres %}
+                <a href="{{ url_for('games_by_genre', genre=genre['genre']) }}" class="btn btn-genre">{{ genre['genre'] }}</a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Display Game List -->
+    <div class="game-list">
+        {% for game in games %}
+            <div class="game-card">
+                <!-- Check if 'background_image' exists for the game -->
+                {% if game['background_image'] %}
+                    <img src="{{ game['background_image'] }}" alt="{{ game['title'] }}">
+                {% else %}
+                    <img src="default-image.jpg" alt="{{ game['title'] }}"> <!-- Fallback image -->
+                {% endif %}
+                
+                <h3>{{ game['title'] }}</h3>
+                <p>{{ game['description'][:100] }}...</p>
+                <a href="{{ url_for('game_details', game_id=game['game_id']) }}">See More</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
